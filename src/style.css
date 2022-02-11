@@ -61,6 +61,26 @@ header {
     font-size: 20px;
 
 }
+h2 {
+text-align: center;
+}
+
+.personajes {
+    width: 90%;
+    margin: 20px auto;
+    display: grid;
+    grid-gap:20px;
+    grid-template-columns: repeat(1, 1fr);
+
+}
+.personajes > div {
+    background-color: rgba(164, 239, 255, 0.3);
+    padding: 20px;
+    border-radius: 4px;
+  
+  
+}
+
 footer {
     background-image: url(footer.svg);
     background-position: top;
