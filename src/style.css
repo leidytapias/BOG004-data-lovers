@@ -10,6 +10,7 @@ header {
     display: flex;
     padding: 0 30px;
     align-items: center;
+    
     }
 
 #menu {
@@ -64,14 +65,115 @@ header {
 footer {
     background-image: url(footer.svg);
     background-position: top;
-    height: 250px;
-    position: relative;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
-.foot {
-    margin-left: 50%;
-    position: absolute;
-    bottom: 20px;
+.foot { 
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+    justify-items: center;
+    justify-content: center;
 }
+
+.sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    padding-right: 120px;
+    margin: 60px;
+}
+h3 {
+    font-family: 'Baloo Thambi 2', cursive;
+    font-family: 'Source Code Pro', monospace;
+    color: rgba(2, 100, 215, 1);
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.p1 {
+    font-family: 'Baloo Thambi 2', cursive;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 20px;
+    margin-bottom: 20px;
+    line-height: 40px;
+    
+}
+#filmoButton {
+    background-color: rgba(164, 239, 255, 1);
+    padding: 10px 15px;
+    border-style: none;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(144, 158, 160, 0.767);
+    font-family: 'Baloo Thambi 2', cursive;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 15px;
+
+}
+
+#filmoButton:hover {
+    background: rgba(40, 206, 241, 1); 
+}
+#chihiro {
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(144, 158, 160, 0.767);
+}
+
+.copyright {
+    font-family: 'Baloo Thambi 2', cursive;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.return1 {
+    background-color: rgba(164, 239, 255, 1);
+    padding: 10px 15px;
+    border-style: none;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(144, 158, 160, 0.767);
+    font-family: 'Baloo Thambi 2', cursive;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 15px;
+    margin-left: 80%;
+}
+
+.return1:hover{
+    background: rgba(40, 206, 241, 1);  
+}
+
+.movies-list {
+    display: grid;
+    gap: 30px;
+    padding-top: 30px;
+    margin-top: 20px;
+    justify-content: center;
+   
+}
+
+.posters {
+    width: 350px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(144, 158, 160, 0.767);
+}
+
+.movie_title {
+    font-family: 'Baloo Thambi 2', cursive;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: bolder;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.date {
+    text-align: center;
+}
+
 
 
 @media screen and (max-width:700px) {
@@ -106,5 +208,23 @@ footer {
         text-align:left;
         font-size: 15px;
     }
-    
-}
+    #chihiro    {
+        grid-column: 1 / -1;
+        width: 80%;
+    }
+    .paragraph {
+        grid-column: 1 / -1;
+    }
+    .p1{
+        font-size: 15px;
+        margin-bottom: 15px;
+        line-height: 30px;
+    }
+    .sections {
+        padding: 0px;
+        gap: 30px;
+        margin: 30px;
+    }
+    #filmoButton {
+        font-size: 13px; }
+    }
