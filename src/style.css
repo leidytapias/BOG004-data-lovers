@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+
+body .personajes {
+    background: rgb(164,239,255);
+    background: linear-gradient(180deg, rgba(164,239,255,0.3029586834733894) 20%, rgba(255,255,255,1) 40%,     rgba(255,255,255,1) 60%, rgba(164,239,255,0.30015756302521013) 80%);
+ }
 header {
     height: 60px;
     background: rgba(164, 239, 255, 1);
@@ -71,15 +76,13 @@ text-align: center;
     display: grid;
     grid-gap:20px;
     grid-template-columns: repeat(1, 1fr);
+  
 
 }
-.personajes > div {
-    background-color: rgba(164, 239, 255, 0.3);
-    padding: 20px;
-    border-radius: 4px;
-  
-  
+.seccionpersonajes{
+    display:none;
 }
+
 
 footer {
     background-image: url(footer.svg);
@@ -92,6 +95,18 @@ footer {
     position: absolute;
     bottom: 20px;
 }
+.busqueda{
+    display:flex;
+    align-self: end;
+    width: 15%;
+    border-radius: 5px;
+
+
+}
+.busqueda:hover {
+    background: rgba(40, 206, 241, 1);
+}
+
 
 
 @media screen and (max-width:700px) {
