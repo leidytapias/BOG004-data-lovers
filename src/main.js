@@ -31,7 +31,7 @@ menuPersonajes.addEventListener("click", () => {
   const busqueda = document.getElementById("busqueda");
   input.addEventListener("change", updateValue);
   // const arregloFiltrado = data.films.filter(
-    // (pelicula) => pelicula.release_date == "1986"
+  // (pelicula) => pelicula.release_date == "1986"
   // );
   mostrarPersonajesPorpelicula(data.films);
 });
@@ -115,19 +115,48 @@ const crearPersonajes = (pelicula) => {
   pelicula.people.forEach((personaje) => {
     let divPersonaje = document.createElement("div");
     divPersonaje.classList = "personaje";
-    let nombrePersonaje = document.createElement("h3");
-    nombrePersonaje.innerText = personaje.name;
-    let imagenPersonaje = document.createElement("img");
-    imagenPersonaje.src = personaje.img;
-    let especie = document.createElement("span");
-    especie.innerText = personaje.specie;
-
-    divPersonaje.appendChild(imagenPersonaje);
-    divPersonaje.appendChild(nombrePersonaje);
-    divPersonaje.appendChild(especie);
+    const tituloPersonaje = crearTituloPersonaje(personaje);
+    const descripcion = crearDescripcionPersonaje(personaje);
+    divPersonaje.appendChild(tituloPersonaje);
+    divPersonaje.appendChild(descripcion);
     divPersonajes.appendChild(divPersonaje);
   });
+
   return divPersonajes;
+};
+
+const crearTituloPersonaje = (personaje) => {
+  let tituloPersonaje = document.createElement("div");
+  tituloPersonaje.classList = "titulo-personaje";
+  let imagenPersonaje = document.createElement("img");
+  imagenPersonaje.src = personaje.img;
+  let nombrePersonaje = document.createElement("h3");
+  nombrePersonaje.innerText = personaje.name;
+
+  tituloPersonaje.appendChild(nombrePersonaje);
+  tituloPersonaje.appendChild(imagenPersonaje);
+
+  return tituloPersonaje;
+};
+
+const crearDescripcionPersonaje = (personaje) => {
+  let descripcionPersonaje = document.createElement("div");
+  descripcionPersonaje.classList = "descripcion-personaje";
+  let especie = document.createElement("span");
+  especie.innerText = "Especie: " + personaje.specie;
+  let age = document.createElement("span");
+  age.innerText = "Edad: " + personaje.age;
+  let eye_color = document.createElement("span");
+  eye_color.innerText = "Color de ojos: " + personaje.eye_color;
+  let hair_color = document.createElement("span");
+  hair_color.innerText = "Color de cabello: " + personaje.hair_color;
+
+  descripcionPersonaje.appendChild(especie);
+  descripcionPersonaje.appendChild(age);
+  descripcionPersonaje.appendChild(eye_color);
+  descripcionPersonaje.appendChild(hair_color);
+
+  return descripcionPersonaje;
 };
 
 function updateValue(e) {
