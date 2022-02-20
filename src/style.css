@@ -11,6 +11,18 @@ header {
   padding: 0 30px;
   align-items: center;
 }
+#btn-inicio {
+  display: flex;
+  align-self: center;
+  border-radius: 2px;
+  padding: 10px;
+  margin-top: 0;
+  
+}
+
+#btn-inicio:hover {
+  background: rgba(40, 206, 241, 0.2);
+}
 
 #menu {
   font-family: "Baloo Thambi 2", cursive;
@@ -212,7 +224,7 @@ h3 {
     display: block;
   }
   #menu {
-    background: rgba(164, 239, 255, 1);
+    background: rgba(164, 239, 255, 0.5);
     position: absolute;
     top: 60px;
     left: 0;
@@ -230,7 +242,7 @@ h3 {
     width: 100%;
   }
   #menu li ul a:hover {
-    background: rgba(40, 206, 241, 1);
+    background: rgba(164, 239, 255, 1);;
   }
   .introduction {
     padding: 30px;

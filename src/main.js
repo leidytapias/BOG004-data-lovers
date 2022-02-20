@@ -8,12 +8,18 @@ let menuPersonajes = document.querySelector("#menu-personajes");
 let sectionPaginaprincipal = document.querySelector(".pagina-principal");
 let seccionpersonajes = document.querySelector(".seccionpersonajes");
 let films = document.querySelector(".films");
-
+let logo = document.querySelector('#btn-inicio')
 const mostrarTitulos = () => {
   sectionPaginaprincipal.style.display = "none";
   seccionpersonajes.style.display = "none";
   films.style.display = "block";
 };
+
+logo.addEventListener('click',() => {
+  seccionpersonajes.style.display = "none";
+  films.style.display = "none";
+  sectionPaginaprincipal.style.display = "block";
+});
 
 let buttonFilms = document.getElementById("filmoButton");
 buttonFilms.addEventListener("click", mostrarTitulos);
@@ -30,9 +36,9 @@ menuPersonajes.addEventListener("click", () => {
   const input = document.querySelector("input");
   const busqueda = document.getElementById("busqueda");
   input.addEventListener("change", updateValue);
-  // const arregloFiltrado = data.films.filter(
-  // (pelicula) => pelicula.release_date == "1986"
-  // );
+  const arregloFiltrado = data.films.filter(
+  (pelicula) => pelicula.release_date == "1986"
+  );
   mostrarPersonajesPorpelicula(data.films);
 });
 
@@ -143,13 +149,13 @@ const crearDescripcionPersonaje = (personaje) => {
   let descripcionPersonaje = document.createElement("div");
   descripcionPersonaje.classList = "descripcion-personaje";
   let especie = document.createElement("span");
-  especie.innerText = "Especie: " + personaje.specie;
+  especie.innerText = "Specie: " + personaje.specie;
   let age = document.createElement("span");
-  age.innerText = "Edad: " + personaje.age;
+  age.innerText = "Age: " + personaje.age;
   let eye_color = document.createElement("span");
-  eye_color.innerText = "Color de ojos: " + personaje.eye_color;
+  eye_color.innerText = "Eye color: " + personaje.eye_color;
   let hair_color = document.createElement("span");
-  hair_color.innerText = "Color de cabello: " + personaje.hair_color;
+  hair_color.innerText = "Hair color: " + personaje.hair_color;
 
   descripcionPersonaje.appendChild(especie);
   descripcionPersonaje.appendChild(age);
