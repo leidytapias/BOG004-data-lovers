@@ -1,10 +1,9 @@
 // estas funciones son de ejemplo
 
 export const filterPersonaje = data.films.filter((peliculas) => {
-
-
-  return 'example';
-)};
+let filterPersonaje = document.createElement(personaje);
+  return 'personaje'
+}
 
 export const anotherExample = () => {
   return 'OMG';
