@@ -75,6 +75,11 @@ header {
 .films {
   display: none;
 }
+.contenedor-peliculas-con-personajes {
+  display: flex;
+  flex-direction: column;
+ align-content: center;
+}
 
 h2 {
   text-align: center;
@@ -83,10 +88,12 @@ h2 {
   font-size: 60px;
 }
 .personajes {
-display: flex;
+display: grid;
+grid-template-columns: 1fr 1fr;
+justify-content: center;
 flex-wrap: wrap;
   width: fit-content;
-  gap: 20px;
+  gap: 16px;
 }
 
 .titulo-personaje img {
@@ -102,21 +109,30 @@ flex-wrap: wrap;
 .personaje {
   display: flex;
   justify-content:center;
- 
-  padding: 12px;
-  margin: 24px;
+  padding:12px;
+  
 }
 .descripcion-personaje {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 12px;
-  margin: 48px;
-  // background-color: aqua;
   width: 180px;
   height: 200px;
   border-radius: 5px;
   box-shadow: 3px 3px 5px rgba(144, 158, 160, 0.767);
+}
+.seccionpersonajes .busqueda{
+  display: flex;
+  justify-content: flex-end;
+}
+.busqueda {
+  display: flex;
+  width: 15%;
+  border-radius: 5px;
+}
+.busqueda:hover {
+  background-color: rgb(192, 209, 226);
 }
 
 .films {
@@ -202,18 +218,7 @@ h3 {
 .return1:hover {
   background: rgba(40, 206, 241, 1);
 }
-.seccionpersonajes .busqueda{
-  display: flex;
-  justify-content: flex-end;
-}
-.busqueda {
-  display: flex;
-  width: 15%;
-  border-radius: 5px;
-}
-.busqueda:hover {
-  background-color: rgb(192, 209, 226);
-}
+
 
 .movies-list {
   display: grid;
@@ -295,10 +300,23 @@ h3 {
     font-size: 13px;
   }
 
-  .seccionpersonajes {
-    display: grid;
-    grid-template-columns: repeat(1fr, 1fr);
+  .contenedor-peliculas-con-personajes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   }
+  .personajes {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+ .descripcion-personaje {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
+  
+  
   h2 {
     font-size:20px;
   

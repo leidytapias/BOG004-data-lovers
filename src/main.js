@@ -49,7 +49,7 @@ volverTitulos.addEventListener("click", () => {
 
 const mostrarPersonajesPorpelicula = (peliculas) => {
   let divContenedorPeliculasConPersonajes = document.querySelector(
-    "#contenedor-peliculas-con-personajes"
+    ".contenedor-peliculas-con-personajes"
   );
   divContenedorPeliculasConPersonajes.innerHTML = "";
   peliculas.forEach((pelicula) => {
