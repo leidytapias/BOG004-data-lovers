@@ -1,4 +1,4 @@
-import {} from "./data.js";
+import { filterData } from "./data.js";
 import data from "./data/ghibli/ghibli.js";
 
 let menuToggle = document.querySelector(".menu-toggle");
@@ -8,14 +8,15 @@ let menuPersonajes = document.querySelector("#menu-personajes");
 let sectionPaginaprincipal = document.querySelector(".pagina-principal");
 let seccionpersonajes = document.querySelector(".seccionpersonajes");
 let films = document.querySelector(".films");
-let logo = document.querySelector('#btn-inicio')
+let logo = document.querySelector("#btn-inicio");
+
 const mostrarTitulos = () => {
   sectionPaginaprincipal.style.display = "none";
   seccionpersonajes.style.display = "none";
   films.style.display = "block";
 };
 
-logo.addEventListener('click',() => {
+logo.addEventListener("click", () => {
   seccionpersonajes.style.display = "none";
   films.style.display = "none";
   sectionPaginaprincipal.style.display = "block";
@@ -32,64 +33,10 @@ menuToggle.addEventListener("click", (f) => {
 menuPersonajes.addEventListener("click", () => {
   sectionPaginaprincipal.style.display = "none";
   films.style.display = "none";
-  seccionpersonajes.style.display = "grid";
-  const input = document.querySelector("input");
-  const busqueda = document.getElementById("busqueda");
-  input.addEventListener("change", updateValue);
-  const arregloFiltrado = data.films.filter(
-  (pelicula) => pelicula.release_date == "1986"
-  );
+  seccionpersonajes.style.display = "block";
+
   mostrarPersonajesPorpelicula(data.films);
 });
-
-/*const filmSection = () => {
-    data.films.map(movies =>{
-    let divMovies = document.createElement('div');
-    divMovies.classList = 'movies-list';
-    let movieTitle = document.createElement('h2');
-    movieTitle.innerText = movies.title;
-    let poster = document.createElement('img');
-    poster.src = movies.poster;
-    let dateRelease = document.createElement('h3');
-    dateRelease.innerHTML = movies.release_date;
-    let sectionMark = document.createElement('hr');
-    divMovies.appendChild(movieTitle);
-    divMovies.appendChild(poster);
-    divMovies.appendChild(dateRelease);
-    films.appendChild(divMovies)
-    films.appendChild(sectionMark);
-}
-    ) 
-    return divMovies;
-}
-console.log(filmSection());*/
-
-const filmSection = data.films.map((movies) => {
-  let divMovies = document.createElement("div");
-  divMovies.classList = "movies-list";
-  let movieTitle = document.createElement("h2");
-  movieTitle.classList = "movie_title";
-  let filme = movies.title;
-  movieTitle.innerText = filme;
-  let poster = document.createElement("img");
-  poster.classList = "posters";
-  let image = movies.poster;
-  poster.src = image;
-  let dateRelease = document.createElement("h3");
-  dateRelease.classList = "date";
-  let date = movies.release_date;
-  dateRelease.innerHTML = date;
-  divMovies.appendChild(movieTitle);
-  divMovies.appendChild(poster);
-  divMovies.appendChild(dateRelease);
-  films.appendChild(divMovies);
-
-  return { filme, image, date };
-});
-
-const filtrar = filmSection.filter((p) => p.date > 1995 && p.date < 2000);
-
-console.log(filtrar);
 
 let volverTitulos = document.createElement("button");
 volverTitulos.classList = "return1";
@@ -101,6 +48,10 @@ volverTitulos.addEventListener("click", () => {
 });
 
 const mostrarPersonajesPorpelicula = (peliculas) => {
+  let divContenedorPeliculasConPersonajes = document.querySelector(
+    "#contenedor-peliculas-con-personajes"
+  );
+  divContenedorPeliculasConPersonajes.innerHTML = "";
   peliculas.forEach((pelicula) => {
     let divPelicula = document.createElement("div");
     divPelicula.classList = "peliculas-con-personajes";
@@ -109,9 +60,8 @@ const mostrarPersonajesPorpelicula = (peliculas) => {
     divPelicula.appendChild(tituloPelicula);
     const divPersonajes = crearPersonajes(pelicula);
     divPelicula.appendChild(divPersonajes);
-    seccionpersonajes.appendChild(divPelicula);
-    let hr = document.createElement("hr");
-    seccionpersonajes.appendChild(hr);
+    divContenedorPeliculasConPersonajes.appendChild(divPelicula);
+    return mostrarPersonajesPorpelicula;
   });
 };
 
@@ -136,6 +86,7 @@ const crearTituloPersonaje = (personaje) => {
   tituloPersonaje.classList = "titulo-personaje";
   let imagenPersonaje = document.createElement("img");
   imagenPersonaje.src = personaje.img;
+  imagenPersonaje.classList = "posterPersonaje";
   let nombrePersonaje = document.createElement("h3");
   nombrePersonaje.innerText = personaje.name;
 
@@ -156,15 +107,26 @@ const crearDescripcionPersonaje = (personaje) => {
   eye_color.innerText = "Eye color: " + personaje.eye_color;
   let hair_color = document.createElement("span");
   hair_color.innerText = "Hair color: " + personaje.hair_color;
+  let gender = document.createElement("span");
+  gender.innerText = "Gender: " + personaje.gender;
 
   descripcionPersonaje.appendChild(especie);
   descripcionPersonaje.appendChild(age);
   descripcionPersonaje.appendChild(eye_color);
   descripcionPersonaje.appendChild(hair_color);
+  descripcionPersonaje.appendChild(gender);
 
   return descripcionPersonaje;
 };
 
-function updateValue(e) {
-  textContent = e.target.value;
-}
+let busqueda = document.querySelector("#busqueda");
+const eventoFiltrarPeliculas = (e) => {
+  let buscar = e.target.value;
+  const peliculasFiltradas = filterData(data.films, (pelicula) =>
+    pelicula.title.toLowerCase().includes(buscar.toLowerCase())
+  );
+
+  mostrarPersonajesPorpelicula(peliculasFiltradas);
+};
+
+busqueda.addEventListener("change", eventoFiltrarPeliculas);

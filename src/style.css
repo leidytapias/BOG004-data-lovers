@@ -17,7 +17,6 @@ header {
   border-radius: 2px;
   padding: 10px;
   margin-top: 0;
-  
 }
 
 #btn-inicio:hover {
@@ -72,29 +71,54 @@ header {
   line-height: 40px;
   font-size: 20px;
 }
-h2 {
-  text-align: center;
+.seccionpersonajes,
+.films {
+  display: none;
 }
 
+h2 {
+  text-align: center;
+  font-family: "Source Code Pro", monospace;
+  padding: 30px 120px;
+  font-size: 60px;
+}
 .personajes {
-  width: 90%;
-  margin: 20px auto;
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 1fr 1fr;
+display: flex;
+flex-wrap: wrap;
+  width: fit-content;
+  gap: 20px;
+}
+
+.titulo-personaje img {
+  box-shadow: 3px 3px 5px rgba(144, 158, 160, 0.767);
+  border-radius: 5px;
+}
+.posterPersonaje {
+  width: 180px;
+  height: 200px;
+  object-fit: cover;
+ 
 }
 .personaje {
   display: flex;
-  justify-content: space-between;
+  justify-content:center;
+ 
+  padding: 12px;
+  margin: 24px;
 }
 .descripcion-personaje {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
+  padding: 12px;
+  margin: 48px;
+  // background-color: aqua;
+  width: 180px;
+  height: 200px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(144, 158, 160, 0.767);
 }
 
-.seccionpersonajes,
 .films {
   display: none;
 }
@@ -109,7 +133,7 @@ footer {
 }
 .foot {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr ;
   gap: 15px;
   justify-items: center;
   justify-content: center;
@@ -178,17 +202,17 @@ h3 {
 .return1:hover {
   background: rgba(40, 206, 241, 1);
 }
+.seccionpersonajes .busqueda{
+  display: flex;
+  justify-content: flex-end;
+}
 .busqueda {
   display: flex;
-  align-self: end;
   width: 15%;
   border-radius: 5px;
 }
 .busqueda:hover {
   background-color: rgb(192, 209, 226);
-}
-.peliculas_con_personajes h2 {
-  font-size: 2.5 em;
 }
 
 .movies-list {
@@ -242,7 +266,7 @@ h3 {
     width: 100%;
   }
   #menu li ul a:hover {
-    background: rgba(164, 239, 255, 1);;
+    background: rgba(164, 239, 255, 1);
   }
   .introduction {
     padding: 30px;
@@ -269,5 +293,14 @@ h3 {
   }
   #filmoButton {
     font-size: 13px;
+  }
+
+  .seccionpersonajes {
+    display: grid;
+    grid-template-columns: repeat(1fr, 1fr);
+  }
+  h2 {
+    font-size:20px;
+  
   }
 }
