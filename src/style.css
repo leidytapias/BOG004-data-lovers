@@ -75,10 +75,17 @@ header {
 .films {
   display: none;
 }
+body .contenedor-peliculas-con-personajes {
+  background-color: #000;
+  color: #fff;
+}
+ul a .personajes {
+  color: rgba(2, 100, 215, 1);
+}
 .contenedor-peliculas-con-personajes {
   display: flex;
   flex-direction: column;
- align-content: center;
+  align-content: center;
 }
 
 h2 {
@@ -88,12 +95,13 @@ h2 {
   font-size: 60px;
 }
 .personajes {
-display: grid;
-grid-template-columns: 1fr 1fr;
-justify-content: center;
-flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  flex-wrap: wrap;
   width: fit-content;
   gap: 16px;
+
 }
 
 .titulo-personaje img {
@@ -101,38 +109,42 @@ flex-wrap: wrap;
   border-radius: 5px;
 }
 .posterPersonaje {
-  width: 180px;
-  height: 200px;
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: 250px;
   object-fit: cover;
  
 }
 .personaje {
   display: flex;
-  justify-content:center;
-  padding:12px;
-  
+  justify-content: center;
+  padding: 12px;
 }
 .descripcion-personaje {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 12px;
-  width: 180px;
-  height: 200px;
+  width: 200px;
+  height: 250px;
   border-radius: 5px;
   box-shadow: 3px 3px 5px rgba(144, 158, 160, 0.767);
 }
-.seccionpersonajes .busqueda{
+.seccionpersonajes .busqueda {
   display: flex;
   justify-content: flex-end;
+  background-color: rgba(2, 100, 215, 1);
 }
-.busqueda {
+#busqueda {
   display: flex;
-  width: 15%;
+  width: 100%;
   border-radius: 5px;
-}
-.busqueda:hover {
+  padding: 12px;
   background-color: rgb(192, 209, 226);
+}
+#busqueda:hover {
+  background-color: rgb(206, 213, 219);
 }
 
 .films {
@@ -149,7 +161,7 @@ footer {
 }
 .foot {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   gap: 15px;
   justify-items: center;
   justify-content: center;
@@ -218,7 +230,6 @@ h3 {
 .return1:hover {
   background: rgba(40, 206, 241, 1);
 }
-
 
 .movies-list {
   display: grid;
@@ -301,24 +312,22 @@ h3 {
   }
 
   .contenedor-peliculas-con-personajes {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .personajes {
     display: flex;
-  flex-direction: column;
-  align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
- .descripcion-personaje {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
- }
-  
-  
+  .descripcion-personaje {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   h2 {
-    font-size:20px;
-  
+    font-size: 20px;
   }
 }
