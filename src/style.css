@@ -4,11 +4,6 @@
     box-sizing: border-box;
 }
 
-
-body .personajes {
-    background: rgb(164,239,255);
-    background: linear-gradient(180deg, rgba(164,239,255,0.3029586834733894) 20%, rgba(255,255,255,1) 40%,     rgba(255,255,255,1) 60%, rgba(164,239,255,0.30015756302521013) 80%);
- }
 header {
     height: 60px;
     background: rgba(164, 239, 255, 1);
@@ -65,25 +60,95 @@ header {
     padding: 30px 120px;
     line-height: 40px;
     font-size: 20px;
-
 }
+
+
+
+body .contenedor-peliculas-con-personajes {
+  background-color: #fff;
+  color: #000;
+}
+
+.contenedor-peliculas-con-personajes {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
 h2 {
-text-align: center;
+  text-align: center;
+  font-family: "Source Code Pro", monospace;
+  padding: 30px 120px;
+  font-size: 60px;
 }
-
 .personajes {
-    width: 90%;
-    margin: 20px auto;
-    display: grid;
-    grid-gap:20px;
-    grid-template-columns: repeat(1, 1fr);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  flex-wrap: wrap;
+  width: 70%;
+  margin-left: 15%;
   
 
 }
+
+.titulo-personaje img {
+  box-shadow: 3px 3px 5px rgba(144, 158, 160, 0.767);
+  border-radius: 5px;
+}
+.posterPersonaje {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+ 
+}
+.personaje {
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  gap: 15px;
+}
+.descripcion-personaje {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px;
+  width: 200px;
+  height: 250px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(144, 158, 160, 0.767);
+  font-family: "Source Code Pro", monospace;
+  background: rgba(164, 239, 255, 0.5);
+}
+.seccionpersonajes .busqueda {
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgba(2, 100, 215, 1);
+}
+#busqueda {
+  display: flex;
+  width: 20%;
+  margin-top: 30px;
+  margin-left: 30px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgb(233, 240, 247);
+  
+}
+#busqueda:hover {
+  background-color: rgb(174, 190, 206);
+}
+
+.menuAz {
+    font-size: 20px;
+    background-color: aqua;
+}
+
 .seccionpersonajes, .films{
     display:none;
 }
-
 
 footer {
     background-image: url(footer.svg);
@@ -108,7 +173,7 @@ footer {
     align-items: center;
     justify-items: center;
     padding-right: 120px;
-    margin: 60px;
+    margin: 30px;
 }
 h3 {
     font-family: 'Baloo Thambi 2', cursive;
@@ -125,7 +190,16 @@ h3 {
     line-height: 40px;
     
 }
-#filmoButton {
+.p2 {
+    font-family: 'Baloo Thambi 2', cursive;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 20px;
+    margin-bottom: 20px;
+    line-height: 40px;
+    width: fit-content;
+    margin-left: 5%;
+}
+#filmoButton, #characterButton {
     background-color: rgba(164, 239, 255, 1);
     padding: 10px 15px;
     border-style: none;
@@ -137,10 +211,13 @@ h3 {
 
 }
 
-#filmoButton:hover {
+#filmoButton:hover, #characterButton:hover {
     background: rgba(40, 206, 241, 1); 
 }
-#chihiro {
+.chihiro {
+    height: 400px;
+    width: 350px;
+    margin: 50px 50px;
     border-radius: 10px;
     box-shadow: 3px 3px 5px rgba(144, 158, 160, 0.767);
 }
@@ -152,48 +229,35 @@ h3 {
     font-weight: bolder;
 }
 
-.return1 {
-    background-color: rgba(164, 239, 255, 1);
-    padding: 10px 15px;
-    border-style: none;
-    border-radius: 3px;
-    box-shadow: 1px 1px 3px rgba(144, 158, 160, 0.767);
-    font-family: 'Baloo Thambi 2', cursive;
-    font-family: 'Source Code Pro', monospace;
-    font-size: 15px;
-    margin-left: 80%;
+.films {
+    padding-top: 60px;
 }
-
-.return1:hover{
-    background: rgba(40, 206, 241, 1);  
-}
-.busqueda{
-    display:flex;
-    align-self: end;
-    width: 15%;
-    border-radius: 5px;
-
-
-}
-.busqueda:hover {
-    background: rgba(40, 206, 241, 1);
-}
-
-
 .movies-list {
     display: grid;
-    gap: 30px;
-    padding-top: 30px;
-    margin-top: 20px;
-    justify-content: center;
-   
+    grid-template-columns: 1fr 2fr;
+    width: 70%;
+    margin: 60px;
+    justify-items: center;
+    width: 85%;
+    padding-left: 8%;
+    gap: 50px;
+}
+
+.div_info {
+    padding: 30px;
+    padding-top: 0px;
+    align-content: center;
+    box-shadow: 1px 1px 3px rgba(144, 158, 160, 0.767);
+    border-radius: 5px;
+    background-color: rgba(164, 239, 255, 0.2) ;
 }
 
 .posters {
-    width: 350px;
-    height: 450px;
+    display: flex;
+    width: 280px;
+    height: 380px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 3px 3px 5px rgba(144, 158, 160, 0.767);
 }
 
@@ -202,11 +266,41 @@ h3 {
     font-family: 'Source Code Pro', monospace;
     font-weight: bolder;
     font-size: xx-large;
-    text-align: center;
+    width: fit-content;
+    margin-top: 20px;
 }
 
+.descriptionFilms {
+    font-family: 'Baloo Thambi 2', cursive;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: lighter;
+    line-height: 25px;
+    font-size: 17px;
+}
 .date {
-    text-align: center;
+    width:fit-content;
+}
+#years {
+    width: fit-content;
+    margin-left: 5%;
+    font-size: 20px;
+    border-style:none;
+    background:rgba(164, 239, 255, 0.2) ;
+    box-shadow: 2px 2px 3px rgba(144, 158, 160, 0.767);
+    padding: 5px;
+}
+#buttonZA, #buttonAZ {
+    width: fit-content;
+    margin-left: 5%;
+    font-size: 20px;
+    border-style:none;
+    background:rgba(164, 239, 255, 0.2) ;
+    box-shadow: 2px 2px 3px rgba(144, 158, 160, 0.767);
+    padding: 5px;
+ }
+
+#buttonZA:hover, #buttonAZ:hover, #years:hover{
+    background-color: rgba(164, 239, 255, 1);
 }
 
 
@@ -216,7 +310,7 @@ h3 {
         display: block;
     }
     #menu{
-        background:rgba(164, 239, 255, 1) ;
+        background:rgba(164, 239, 255, 0.6) ;
         position: absolute;
         top: 60px;
         left: 0;
@@ -235,7 +329,7 @@ h3 {
 
     }
     #menu li ul a:hover{
-        background:rgba(40, 206, 241, 1) ;
+        background:rgba(40, 206, 241, 0.8) ;
     }
     .introduction {
         padding: 30px;
@@ -260,6 +354,59 @@ h3 {
         gap: 30px;
         margin: 30px;
     }
-    #filmoButton {
+    #filmoButton, #characterButton {
         font-size: 13px; }
+    
+    .films {
+    margin:0%
+        }
+    
+    .movies-list {
+    gap: 40px;
+    margin: 0%;
+    justify-items: center;
+    padding-top: 50px;
+        }
+        
+    .p2 {
+        line-height: 30px;
+        text-align:left;
+        font-size: 15px; 
     }
+    .div_info {
+        align-content: left;
+        grid-column: 1 / -1;
+        }   
+    
+    .posters {
+        grid-column: 1 / -1;
+        }
+    .movie_title {
+            font-size:x-large;
+            width: fit-content;
+        }
+    
+        .contenedor-peliculas-con-personajes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .personajes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 3%;
+          }
+          .descripcion-personaje {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+        
+          h2 {
+            font-size: 20px;
+          }
+        
+    
+    }
+   
