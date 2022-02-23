@@ -90,7 +90,7 @@ body .contenedor-peliculas-con-personajes {
 h2 {
   text-align: center;
   font-family: "Source Code Pro", monospace;
-  padding: 30px 120px;
+  padding: 30px 0px;
   font-size: 60px;
 }
 .personajes {
@@ -98,10 +98,11 @@ h2 {
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   flex-wrap: wrap;
-  width: 70%;
-  margin-left: 15%;
+ 
 }
-
+.titulo-personaje{
+  width: 50%
+}
 .titulo-personaje img {
   box-shadow: 3px 3px 5px rgba(144, 158, 160, 0.767);
   border-radius: 5px;
@@ -109,13 +110,14 @@ h2 {
 .posterPersonaje {
   display: flex;
   justify-content: center;
-  width: 200px;
+  width: 100%;
   height: 250px;
   object-fit: cover;
 }
 .personaje {
   display: flex;
   justify-content: center;
+  width: 400px;
   padding: 12px;
   gap: 15px;
 }
@@ -124,7 +126,7 @@ h2 {
   flex-direction: column;
   justify-content: center;
   padding: 12px;
-  width: 200px;
+  width: 50%;
   height: 250px;
   border-radius: 5px;
   box-shadow: 3px 3px 5px rgba(144, 158, 160, 0.767);
@@ -138,7 +140,6 @@ h2 {
 }
 #busqueda {
   display: flex;
-  width: 20%;
   margin-top: 30px;
   margin-left: 30px;
   border-radius: 5px;
@@ -308,6 +309,13 @@ h3 {
 #years:hover {
   background-color: rgba(164, 239, 255, 1);
 }
+
+@media screen and (max-width: 850px) {
+  .personaje {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 700px) {
   .menu-toggle {
     display: block;
