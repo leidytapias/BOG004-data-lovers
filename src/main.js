@@ -1,6 +1,7 @@
-import { filterData } from "./data.js";
+import {filtrar, organizar, filterData } from "./data.js";
 import data from "./data/ghibli/ghibli.js";
 
+let studioGhibli = data.films;
 let menuToggle = document.querySelector(".menu-toggle");
 let menu = document.getElementById("menu");
 let menuTitulos = document.querySelector("#titulos");
@@ -9,12 +10,8 @@ let sectionPaginaprincipal = document.querySelector(".pagina-principal");
 let seccionpersonajes = document.querySelector(".seccionpersonajes");
 let films = document.querySelector(".films");
 let logo = document.querySelector("#btn-inicio");
-
-const mostrarTitulos = () => {
-  sectionPaginaprincipal.style.display = "none";
-  seccionpersonajes.style.display = "none";
-  films.style.display = "block";
-};
+let divMovies = document.createElement("div");
+divMovies.classList = "movies-list";
 
 logo.addEventListener("click", () => {
   seccionpersonajes.style.display = "none";
@@ -22,13 +19,96 @@ logo.addEventListener("click", () => {
   sectionPaginaprincipal.style.display = "block";
 });
 
+menuToggle.addEventListener("click", (f) => {
+  menu.classList.toggle("show");
+});
+
+const mostrarTitulos = () => {
+  while (divMovies.firstChild) {
+    divMovies.removeChild(divMovies.firstChild);
+  }
+  extraerPeliculas(studioGhibli);
+
+  sectionPaginaprincipal.style.display = "none";
+  seccionpersonajes.style.display = "none";
+  films.style.display = "block";
+};
+
 let buttonFilms = document.getElementById("filmoButton");
 buttonFilms.addEventListener("click", mostrarTitulos);
 menuTitulos.addEventListener("click", mostrarTitulos);
 
-menuToggle.addEventListener("click", (f) => {
-  menu.classList.toggle("show");
+let characterButton = document.getElementById("characterButton");
+characterButton.addEventListener("click", () => {
+  sectionPaginaprincipal.style.display = "none";
+  films.style.display = "none";
+  seccionpersonajes.style.display = "grid";
+  mostrarPersonajesPorpelicula(data.films);
 });
+
+function extraerPeliculas(dataMovies) {
+  dataMovies.map((movies) => {
+    let movieTitle = document.createElement("h2");
+    movieTitle.classList = "movie_title";
+    let filme = movies.title;
+    movieTitle.innerText = filme;
+    let dateRelease = document.createElement("h3");
+    dateRelease.classList = "date";
+    let date = movies.release_date;
+    dateRelease.innerHTML = date;
+    let divInfo = document.createElement("div");
+    divInfo.classList = "div_info";
+    let poster = document.createElement("img");
+    poster.classList = "posters";
+    let image = movies.poster;
+    poster.src = image;
+    let descriptions = document.createElement("p");
+    descriptions.classList = "descriptionFilms";
+    let description = movies.description;
+    descriptions.innerText = description;
+    divMovies.appendChild(poster);
+    divMovies.appendChild(divInfo);
+    divInfo.appendChild(movieTitle);
+    divInfo.appendChild(dateRelease);
+    divInfo.appendChild(descriptions);
+    films.appendChild(divMovies);
+  });
+}
+
+let buttonAZ = document.getElementById("buttonAZ");
+buttonAZ.addEventListener("click", orderAZ);
+
+function orderAZ() {
+  let peliculasOrganizadasZA = organizar(studioGhibli);
+  let peliculasOrganizadasAZ = peliculasOrganizadasZA.reverse();
+  while (divMovies.firstChild) {
+    divMovies.removeChild(divMovies.firstChild);
+  }
+  extraerPeliculas(peliculasOrganizadasAZ);
+}
+
+let buttonZA = document.getElementById("buttonZA");
+buttonZA.addEventListener("click", orderZA);
+
+function orderZA() {
+  let peliculasOrganizadas = organizar(studioGhibli);
+  while (divMovies.firstChild) {
+    divMovies.removeChild(divMovies.firstChild);
+  }
+  extraerPeliculas(peliculasOrganizadas);
+}
+
+let datelist = document.getElementById("years");
+datelist.addEventListener("change", showDateFilterMovies);
+
+function showDateFilterMovies() {
+  let selected = datelist.options[datelist.selectedIndex].value;
+  let filterMovies = filtrar(studioGhibli, selected);
+  while (divMovies.firstChild) {
+    divMovies.removeChild(divMovies.firstChild);
+  }
+  extraerPeliculas(filterMovies);
+}
 
 menuPersonajes.addEventListener("click", () => {
   sectionPaginaprincipal.style.display = "none";
@@ -36,15 +116,6 @@ menuPersonajes.addEventListener("click", () => {
   seccionpersonajes.style.display = "block";
 
   mostrarPersonajesPorpelicula(data.films);
-});
-
-let volverTitulos = document.createElement("button");
-volverTitulos.classList = "return1";
-volverTitulos.innerText = "Volver";
-films.appendChild(volverTitulos);
-volverTitulos.addEventListener("click", () => {
-  sectionPaginaprincipal.style.display = "block";
-  films.style.display = "none";
 });
 
 const mostrarPersonajesPorpelicula = (peliculas) => {
@@ -87,16 +158,15 @@ const crearTituloPersonaje = (personaje) => {
   let imagenPersonaje = document.createElement("img");
   imagenPersonaje.src = personaje.img;
   imagenPersonaje.classList = "posterPersonaje";
-  let nombrePersonaje = document.createElement("h3");
-  nombrePersonaje.innerText = personaje.name;
 
-  tituloPersonaje.appendChild(nombrePersonaje);
   tituloPersonaje.appendChild(imagenPersonaje);
 
   return tituloPersonaje;
 };
 
 const crearDescripcionPersonaje = (personaje) => {
+  let nombrePersonaje = document.createElement("h3");
+  nombrePersonaje.innerText = personaje.name;
   let descripcionPersonaje = document.createElement("div");
   descripcionPersonaje.classList = "descripcion-personaje";
   let especie = document.createElement("span");
@@ -110,6 +180,7 @@ const crearDescripcionPersonaje = (personaje) => {
   let gender = document.createElement("span");
   gender.innerText = "Gender: " + personaje.gender;
 
+  descripcionPersonaje.appendChild(nombrePersonaje);
   descripcionPersonaje.appendChild(especie);
   descripcionPersonaje.appendChild(age);
   descripcionPersonaje.appendChild(eye_color);
