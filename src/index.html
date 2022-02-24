@@ -1,96 +1,132 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-  </head>
 
-  <body>
-    <header>
-      <div class="logo">
-        <a href="#"><img src="logo.svg" alt="logo" /></a>
+<head>
+  <meta charset="utf-8" />
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <a id = "btn-inicio" href="#"><img src="logo.svg" alt="logo" /></a>
+    </div>
+    <nav id="menu">
+      <li>
+        <ul>
+          <a href="#" id="titulos">TITULOS</a>
+        </ul>
+        <ul>
+          <a id="menu-personajes" href="#">PERSONAJES</a>
+        </ul>
+        <ul>
+          <a href="#">EQUIPO CREATIVO</a>
+        </ul>
+        <ul>
+          <a href="#">RANKING</a>
+        </ul>
+      </li>
+    </nav>
+    <div class="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+  <main>
+    <section class="pagina-principal">
+      <div class="mainImage">
+        <img src="portada.svg" alt="portada" class="iniEnd" />
       </div>
-      <nav id="menu">
-        <li>
-          <ul>
-            <a href="#" id="titulos">TITULOS</a>
-          </ul>
-          <ul>
-            <a id="menu-personajes" href="#">PERSONAJES</a>
-          </ul>
-          <ul>
-            <a href="#">EQUIPO CREATIVO</a>
-          </ul>
-          <ul>
-            <a href="#">RANKING</a>
-          </ul>
-        </li>
-      </nav>
-      <div class="menu-toggle">
-        <i class="fas fa-bars"></i>
-      </div>
-    </header>
-    <main>
-      <section class="pagina-principal">
-        <div class="mainImage">
-          <img src="portada.svg" alt="portada" class="iniEnd" />
+
+      <p class="introduction">
+        ¡BIENVENIDO A STUDIO GHIBLI FAN PAGE! Aquí encontraras todo lo que
+        siempre has querido saber de tus títulos, personajes y guionistas
+        favoritos. Te invitamos a empezar este maravilloso recorrido en el que
+        descubriras un mundo lleno de fantasía, talento y perseverancia.
+      </p>
+      <p class="introduction">
+        El Studio Ghibli (スタジオジブリ Sutajio Jiburi) es un estudio de
+        animación japonés, con sede en Tokio. Fue fundado en 1985 por Hayao
+        Miyazaki y Isao Takahata, y a día de hoy, han realizado más de 20
+        películas, además de otras clases de trabajos (cortometrajes, anuncios
+        publicitarios, entre otros). Tienen el respeto del público japonés y
+        han sido ovasionados por la crítica internacional. Debido a su
+        popularidad, se dió apertura al Museo Ghibli, el cual se encuentra a
+        las afueras de Tokio y para el presente año se espera tener listo el
+        Ghibli Park.
+      </p>
+
+      <div class="sections">
+        <img src="Chihiro.png" alt="Chihiro" class="chihiro" />
+        <div class="paragraph">
+          <h3>TITULOS</h3>
+          <p class="p1">
+            En esta sección encontrarás la filmografía completa del Studio con
+            datos importantes como año de estreno, dirección, producción y una
+            pequeña sinopsis de cada título.
+          </p>
+          <input type="button" value="Ingresar" id="filmoButton" />
         </div>
-
-        <p class="introduction">
-          ¡BIENVENIDO A STUDIO GHIBLI FAN PAGE! Aquí encontraras todo lo que
-          siempre has querido saber de tus títulos, personajes y guionistas
-          favoritos. Te invitamos a empezar este maravilloso recorrido en el que
-          descubriras un mundo lleno de fantasía, talento y perseverancia.
-        </p>
-        <p class="introduction">
-          El Studio Ghibli (スタジオジブリ Sutajio Jiburi) es un estudio de
-          animación japonés, con sede en Tokio. Fue fundado en 1985 por Hayao
-          Miyazaki y Isao Takahata, y a día de hoy, han realizado más de 20
-          películas, además de otras clases de trabajos (cortometrajes, anuncios
-          publicitarios, entre otros). Tienen el respeto del público japonés y
-          han sido ovasionados por la crítica internacional. Debido a su
-          popularidad, se dió apertura al Museo Ghibli, el cual se encuentra a
-          las afueras de Tokio y para el presente año se espera tener listo el
-          Ghibli Park.
-        </p>
-        <div class="sections">
-          <img src="Chihiro.png" alt="Chihiro" id="chihiro" />
-          <div class="paragraph">
-            <h3>TITULOS</h3>
-            <p class="p1">
-              En esta sección encontrarás la filmografía completa del Studio con
-              datos importantes como año de estreno, dirección, producción y una
-              pequeña sinopsis de cada título.
-            </p>
-            <input type="button" value="Ingresar" id="filmoButton" />
-          </div>
+        <img src="characters.jpg" alt="personajes" class="chihiro">
+        <div class="paragraph">
+          <h3>PERSONAJES</h3>
+          <p class="p1">
+            En esta sección podrás visualizar todos los títulos del Studio junto a tus personajes favoritos.
+          </p>
+          <input type="button" value="Ingresar" id="characterButton">
         </div>
-      </section>
-
-      <div class="films"></div>
-      <section class="seccionpersonajes">
-        <input class="busqueda" placeholder="buscador" name="buscador" />
-        <p id="busqueda"></p>
-      </section>
-    </main>
-
-    <footer>
-      <div class="foot">
-        <a href="javascript:history.back()">
-          <img src="totoro.svg" alt="totoro" id="totoro"
-        /></a>
-        <p class="copyright">©STUDIO GHIBLI FP - 2022</p>
       </div>
-    </footer>
+    </section>
+  </main>
+  <div class="secciones">
+    <div class="films">
+      <p class="p2">
+        Para que puedas acceder mas rapidamente a la información de tu largometraje favorito, puedes organizar la
+        filmografía por orden alfabético o puedes obtenerlas seleccionando un rango cronológico.
+      </p>
+      <select name="years" id="years">
+        <option value="all">all</option>
+        <option value="1986">1986</option>
+        <option value="1988">1988</option>
+        <option value="1989">1989</option>
+        <option value="1991">1991</option>
+        <option value="1992">1992</option>
+        <option value="1994">1994</option>
+        <option value="1995">1995</option>
+        <option value="1997">1997</option>
+        <option value="1999">1999</option>
+        <option value="2001">2001</option>
+        <option value="2002">2002</option>
+        <option value="2004">2004</option>
+        <option value="2006">2006</option>
+        <option value="2008">2008</option>
+        <option value="2010">2010</option>
+        <option value="2011">2011</option>
+        <option value="2013">2013</option>
+        <option value="2014">2014</option>
+      </select>
+      <input type="button" value="AZ↓" id="buttonAZ">
+      <input type="button" value="AZ↑" id="buttonZA">
+    </div>
 
-    <div id="root"></div>
-    <script src="main.js" type="module"></script>
-  </body>
+    <section class="seccionpersonajes">
+      <input type="search" id="busqueda" placeholder="Buscar..." />
+      <div class ="contenedor-peliculas-con-personajes"></div>
+    </section>
+
+  </div>
+  <footer>
+    <div class="foot">
+      <a href="javascript:history.back()">
+        <img src="totoro.svg" alt="totoro" id="totoro" /></a>
+      <p class="copyright">©STUDIO GHIBLI FP - 2022</p>
+    </div>
+  </footer>
+
+  <div id="root"></div>
+  <script src="main.js" type="module"></script>
+</body>
+
 </html>

@@ -1,18 +1,28 @@
-import { example, anotherExample } from '../src/data.js';
+import { filtrar } from '../src/data.js';
+
+let muestraPeliculas = [
+  {"title": "Castle in the Sky",
+  "release_date": "1986",},
+  {"title": "My Neighbor Totoro",
+  "release_date": "1988",
+},
+]
+  
 
 
-describe('example', () => {
+describe('filtrar', () => {
   it('is a function', () => {
-    expect(typeof example).toBe('function');
+    expect(typeof filtrar).toBe('function');
   });
 
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
+  it('retorne Only yesterday en 1991', () => {
+    const result = filtrar(muestraPeliculas);
+    expect(filtrar(result.title, 1988)).toBe('My Neighbor Totoro');
   });
 });
 
 
-describe('anotherExample', () => {
+/*describe('anotherExample', () => {
   it('is a function', () => {
     expect(typeof anotherExample).toBe('function');
   });
@@ -20,4 +30,4 @@ describe('anotherExample', () => {
   it('returns `anotherExample`', () => {
     expect(anotherExample()).toBe('OMG');
   });
-});
+});*/
