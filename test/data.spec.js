@@ -1,15 +1,5 @@
 import { filtrar } from '../src/data.js';
 
-let muestraPeliculas = [
-  {"title": "Castle in the Sky",
-  "release_date": "1986",},
-  {"title": "My Neighbor Totoro",
-  "release_date": "1988",
-},
-]
-  
-
-
 describe('filtrar', () => {
   it('is a function', () => {
     expect(typeof filtrar).toBe('function');
