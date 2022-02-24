@@ -12,6 +12,7 @@ let films = document.querySelector(".films");
 let logo = document.querySelector("#btn-inicio");
 let divMovies = document.createElement("div");
     divMovies.classList = "movies-list";
+
  
 logo.addEventListener("click", () => {
 seccionpersonajes.style.display = "none";
@@ -48,6 +49,16 @@ characterButton.addEventListener('click', () => {
   mostrarPersonajesPorpelicula(data.films);
 })
 
+const extraerDirector = studioGhibli.map((pelicula) => {
+    let director = pelicula.director;
+    let nombre = pelicula.title;
+    let puntaje = pelicula.rt_score;
+
+    return [director,nombre,puntaje];
+  })
+let hayao = extraerDirector.filter(p == "Hayao Miyazaki");
+  
+console.log(hayao);
 
 function extraerPeliculas(dataMovies){
 

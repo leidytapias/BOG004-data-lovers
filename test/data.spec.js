@@ -1,13 +1,8 @@
 import { filtrar } from '../src/data.js';
+import { describe, it } from 'eslint/lib/rule-tester/rule-tester';
+import data from "../src/data/ghibli/ghibli.js";
 
-let muestraPeliculas = [
-  {"title": "Castle in the Sky",
-  "release_date": "1986",},
-  {"title": "My Neighbor Totoro",
-  "release_date": "1988",
-},
-]
-  
+const pelicula = data.films;
 
 
 describe('filtrar', () => {
@@ -16,7 +11,7 @@ describe('filtrar', () => {
   });
 
   it('retorne Only yesterday en 1991', () => {
-    const result = filtrar(muestraPeliculas);
+    const result = filtrar(pelicula);
     expect(filtrar(result.title, 1988)).toBe('My Neighbor Totoro');
   });
 });
