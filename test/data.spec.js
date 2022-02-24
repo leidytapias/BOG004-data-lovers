@@ -1,23 +1,34 @@
-import { filtrar } from '../src/data.js';
 
-describe('filtrar', () => {
-  it('is a function', () => {
-    expect(typeof filtrar).toBe('function');
+import { filterData } from "../src/data.js";
+import data from "../src/data/ghibli/ghibli.js";
+
+describe("pruebas para la funcion filterData", () => {
+  it("verificar que filterData es una funcion", () => {
+    expect(typeof filterData).toBe("function");
   });
 
-  it('retorne Only yesterday en 1991', () => {
-    const result = filtrar(muestraPeliculas);
-    expect(filtrar(result.title, 1988)).toBe('My Neighbor Totoro');
+  it("deberia retornar la pelicula My Neighbor Totoro", () => {
+    let tituloPelicula = "totoro";
+    const peliculasFiltradas = filterData(data.films, (pelicula) =>
+      pelicula.title.toLowerCase().includes(tituloPelicula)
+    );
+    expect(peliculasFiltradas[0].title).toBe("My Neighbor Totoro");
   });
 });
-
-
-/*describe('anotherExample', () => {
-  it('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
+  it("deberia retornar el miercoles", () => {
+    const diasDeLaSemanas = filterData(
+      [
+        "lunes",
+        "martes",
+        "miercoles",
+        "jueves",
+        "viernes",
+        "sabado",
+        "domingo"
+      ],
+      (dato) => dato ==='miercoles'
+    );
+    expect(diasDeLaSemanas[0]).toBe("miercoles");
   });
 
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});*/
+
