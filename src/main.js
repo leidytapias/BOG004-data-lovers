@@ -19,7 +19,7 @@ logo.addEventListener("click", () => {
   sectionPaginaprincipal.style.display = "block";
 });
 
-menuToggle.addEventListener("click", (f) => {
+menuToggle.addEventListener("click", () => {
   menu.classList.toggle("show");
 });
 
