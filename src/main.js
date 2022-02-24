@@ -20,13 +20,17 @@ films.style.display = "none";
 sectionPaginaprincipal.style.display = "block";
     })
 
-    menuToggle.addEventListener("click", () => {
-      menu.classList.toggle("show");
-          });
-    
+logo.addEventListener("click", () => {
+  seccionpersonajes.style.display = "none";
+  films.style.display = "none";
+  sectionPaginaprincipal.style.display = "block";
+});
+
+menuToggle.addEventListener("click", () => {
+  menu.classList.toggle("show");
+});
 
 const mostrarTitulos = () => {
- 
   while (divMovies.firstChild) {
     divMovies.removeChild(divMovies.firstChild);
   }
@@ -41,8 +45,8 @@ let buttonFilms = document.getElementById("filmoButton");
 buttonFilms.addEventListener("click", mostrarTitulos);
 menuTitulos.addEventListener("click", mostrarTitulos);
 
-let characterButton = document.getElementById('characterButton');
-characterButton.addEventListener('click', () => {
+let characterButton = document.getElementById("characterButton");
+characterButton.addEventListener("click", () => {
   sectionPaginaprincipal.style.display = "none";
   films.style.display = "none";
   seccionpersonajes.style.display = "grid";
@@ -60,8 +64,7 @@ let hayao = extraerDirector.filter(p == "Hayao Miyazaki");
   
 console.log(hayao);
 
-function extraerPeliculas(dataMovies){
-
+function extraerPeliculas(dataMovies) {
   dataMovies.map((movies) => {
     let movieTitle = document.createElement("h2");
     movieTitle.classList = "movie_title";
@@ -87,14 +90,13 @@ function extraerPeliculas(dataMovies){
     divInfo.appendChild(dateRelease);
     divInfo.appendChild(descriptions);
     films.appendChild(divMovies);
-  
-  })
+  });
 }
 
-let buttonAZ = document.getElementById('buttonAZ');
-buttonAZ.addEventListener('click', orderAZ)
+let buttonAZ = document.getElementById("buttonAZ");
+buttonAZ.addEventListener("click", orderAZ);
 
-function orderAZ () {
+function orderAZ() {
   let peliculasOrganizadasZA = organizar(studioGhibli);
   let peliculasOrganizadasAZ = peliculasOrganizadasZA.reverse();
   while (divMovies.firstChild) {
@@ -103,23 +105,21 @@ function orderAZ () {
   extraerPeliculas(peliculasOrganizadasAZ);
 }
 
-let buttonZA = document.getElementById('buttonZA');
-buttonZA.addEventListener('click', orderZA);
+let buttonZA = document.getElementById("buttonZA");
+buttonZA.addEventListener("click", orderZA);
 
-function orderZA () {
+function orderZA() {
   let peliculasOrganizadas = organizar(studioGhibli);
   while (divMovies.firstChild) {
     divMovies.removeChild(divMovies.firstChild);
   }
   extraerPeliculas(peliculasOrganizadas);
-  
 }
 
-let datelist = document.getElementById('years');
-datelist.addEventListener('change', showDateFilterMovies);
+let datelist = document.getElementById("years");
+datelist.addEventListener("change", showDateFilterMovies);
 
 function showDateFilterMovies() {
-
   let selected = datelist.options[datelist.selectedIndex].value;
   let filterMovies = filtrar(studioGhibli, selected);
   while (divMovies.firstChild) {
@@ -219,6 +219,3 @@ const eventoFiltrarPeliculas = (e) => {
 };
 
 busqueda.addEventListener("change", eventoFiltrarPeliculas);
-
-
- 
