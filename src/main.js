@@ -1,4 +1,4 @@
-import { filtrar, organizar, filterData } from "./data.js";
+import { filtrar, organizar, filterData, sortData } from "./data.js";
 import data from "./data/ghibli/ghibli.js";
 
 let studioGhibli = data.films;
@@ -205,18 +205,26 @@ menuRankingPersonaje.addEventListener("click", () => {
 });
 
 const mostrarRankingPersonaje = (peliculas) => {
-  peliculas.forEach((pelicula) => {
+  const peliculasOrdenada = sortData(peliculas, (peliculaA, peliculaB) => {
+      return peliculaB.rt_score - peliculaA.rt_score;
+    }
+  );
+
+  peliculasOrdenada.forEach((pelicula) => {
     let contenedorRanking = document.createElement("div");
     contenedorRanking.classList = "contenedor-ranking";
     let imagenRanking = document.createElement("img");
     imagenRanking.src = pelicula.poster;
+    let descripcionRanking = document.createElement("div");
+    descripcionRanking.classList = "description-ranking";
     let tituloRanking = document.createElement("h2");
     tituloRanking.innerText = pelicula.title;
     let calificacionRanking = document.createElement("span");
     calificacionRanking.innerText = "rt_score: " + pelicula.rt_score;
     contenedorRanking.appendChild(imagenRanking);
-    contenedorRanking.appendChild(tituloRanking);
-    contenedorRanking.appendChild(calificacionRanking);
+    descripcionRanking.appendChild(tituloRanking);
+    descripcionRanking.appendChild(calificacionRanking);
+    contenedorRanking.appendChild(descripcionRanking);
     seccionRanking.appendChild(contenedorRanking);
   });
 }
