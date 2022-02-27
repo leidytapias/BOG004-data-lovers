@@ -1,4 +1,4 @@
-import { filtrar , organizar, filterData } from "./data.js";
+import { filtrar, organizar, filterData } from "./data.js";
 import data from "./data/ghibli/ghibli.js";
 
 let studioGhibli = data.films;
@@ -8,14 +8,17 @@ let menuTitulos = document.querySelector("#titulos");
 let menuPersonajes = document.querySelector("#menu-personajes");
 let sectionPaginaprincipal = document.querySelector(".pagina-principal");
 let seccionpersonajes = document.querySelector(".seccionpersonajes");
+let seccionRanking = document.querySelector(".seccion-ranking");
 let films = document.querySelector(".films");
 let logo = document.querySelector("#btn-inicio");
+let menuRankingPersonaje = document.querySelector("#menu-ranking-personaje")
 let divMovies = document.createElement("div");
 divMovies.classList = "movies-list";
 
 logo.addEventListener("click", () => {
   seccionpersonajes.style.display = "none";
   films.style.display = "none";
+  seccionRanking.style.display = "none";
   sectionPaginaprincipal.style.display = "block";
 });
 
@@ -30,6 +33,7 @@ const mostrarTitulos = () => {
   extraerPeliculas(studioGhibli);
 
   sectionPaginaprincipal.style.display = "none";
+  seccionRanking.style.display = "none";
   seccionpersonajes.style.display = "none";
   films.style.display = "block";
 };
@@ -42,7 +46,7 @@ let characterButton = document.getElementById("characterButton");
 characterButton.addEventListener("click", () => {
   sectionPaginaprincipal.style.display = "none";
   films.style.display = "none";
-  seccionpersonajes.style.display = "grid";
+  seccionpersonajes.style.display = "block";
   mostrarPersonajesPorpelicula(data.films);
 })
 
@@ -114,6 +118,7 @@ function showDateFilterMovies() {
 menuPersonajes.addEventListener("click", () => {
   sectionPaginaprincipal.style.display = "none";
   films.style.display = "none";
+  seccionRanking.style.display = "none";
   seccionpersonajes.style.display = "block";
 
   mostrarPersonajesPorpelicula(data.films);
@@ -190,6 +195,17 @@ const crearDescripcionPersonaje = (personaje) => {
 
   return descripcionPersonaje;
 };
+
+menuRankingPersonaje.addEventListener("click", () => {
+  sectionPaginaprincipal.style.display = "none";
+  films.style.display = "none";
+  seccionpersonajes.style.display = "none";
+  seccionRanking.style.display = "block";
+  mostrarRankingPersonaje(data.films);
+});
+
+const mostrarRankingPersonaje = (peliculas) => {
+}
 
 let busqueda = document.querySelector("#busqueda");
 const eventoFiltrarPeliculas = (e) => {
