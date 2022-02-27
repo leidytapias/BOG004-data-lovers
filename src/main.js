@@ -200,7 +200,7 @@ menuRankingPersonaje.addEventListener("click", () => {
   sectionPaginaprincipal.style.display = "none";
   films.style.display = "none";
   seccionpersonajes.style.display = "none";
-  seccionRanking.style.display = "block";
+  seccionRanking.style.display = "flex";
   mostrarRankingPersonaje(data.films);
 });
 
@@ -216,14 +216,18 @@ const mostrarRankingPersonaje = (peliculas) => {
     let imagenRanking = document.createElement("img");
     imagenRanking.src = pelicula.poster;
     let descripcionRanking = document.createElement("div");
-    descripcionRanking.classList = "description-ranking";
-    let tituloRanking = document.createElement("h2");
+    descripcionRanking.classList = "descripcion-ranking";
+    let tituloRanking = document.createElement("h3");
     tituloRanking.innerText = pelicula.title;
     let calificacionRanking = document.createElement("span");
-    calificacionRanking.innerText = "rt_score: " + pelicula.rt_score;
+    calificacionRanking.innerText = "rt_score: ";
+    let puntuacionRanking = document.createElement("span");
+    puntuacionRanking.classList = "puntaje";
+    puntuacionRanking.innerText =  pelicula.rt_score;
     contenedorRanking.appendChild(imagenRanking);
     descripcionRanking.appendChild(tituloRanking);
     descripcionRanking.appendChild(calificacionRanking);
+    descripcionRanking.appendChild(puntuacionRanking);
     contenedorRanking.appendChild(descripcionRanking);
     seccionRanking.appendChild(contenedorRanking);
   });
