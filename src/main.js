@@ -205,6 +205,20 @@ menuRankingPersonaje.addEventListener("click", () => {
 });
 
 const mostrarRankingPersonaje = (peliculas) => {
+  peliculas.forEach((pelicula) => {
+    let contenedorRanking = document.createElement("div");
+    contenedorRanking.classList = "contenedor-ranking";
+    let imagenRanking = document.createElement("img");
+    imagenRanking.src = pelicula.poster;
+    let tituloRanking = document.createElement("h2");
+    tituloRanking.innerText = pelicula.title;
+    let calificacionRanking = document.createElement("span");
+    calificacionRanking.innerText = "rt_score: " + pelicula.rt_score;
+    contenedorRanking.appendChild(imagenRanking);
+    contenedorRanking.appendChild(tituloRanking);
+    contenedorRanking.appendChild(calificacionRanking);
+    seccionRanking.appendChild(contenedorRanking);
+  });
 }
 
 let busqueda = document.querySelector("#busqueda");
