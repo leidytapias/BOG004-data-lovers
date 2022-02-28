@@ -1,4 +1,4 @@
-import { filtrar, organizar, filterData, sortData } from "./data.js";
+import { filtrar, organizar, filterData, sortData, obtenerPromedio } from "./data.js";
 import data from "./data/ghibli/ghibli.js";
 
 let studioGhibli = data.films;
@@ -200,15 +200,25 @@ menuRankingPersonaje.addEventListener("click", () => {
   sectionPaginaprincipal.style.display = "none";
   films.style.display = "none";
   seccionpersonajes.style.display = "none";
+  seccionRanking.innerHTML = "";
   seccionRanking.style.display = "flex";
   mostrarRankingPersonaje(data.films);
 });
 
 const mostrarRankingPersonaje = (peliculas) => {
   const peliculasOrdenada = sortData(peliculas, (peliculaA, peliculaB) => {
-      return peliculaB.rt_score - peliculaA.rt_score;
-    }
+    return peliculaB.rt_score - peliculaA.rt_score;
+  }
   );
+
+  const arregloDeCalificaciones = peliculas.map(pelicula => parseInt(pelicula.rt_score));
+  const promedioCalificaciones = obtenerPromedio(arregloDeCalificaciones);
+  let contenedorPromedio = document.createElement("div");
+  contenedorPromedio.classList = "contenedor-promedio";
+  let contenedorPorcentaje = document.createElement("span");
+  contenedorPorcentaje.innerText = "Promedio de las peliculas de Studio Ghibli:" + promedioCalificaciones;
+  contenedorPromedio.appendChild(contenedorPorcentaje);
+  seccionRanking.appendChild(contenedorPromedio);
 
   peliculasOrdenada.forEach((pelicula) => {
     let contenedorRanking = document.createElement("div");
@@ -223,7 +233,7 @@ const mostrarRankingPersonaje = (peliculas) => {
     calificacionRanking.innerText = "rt_score: ";
     let puntuacionRanking = document.createElement("span");
     puntuacionRanking.classList = "puntaje";
-    puntuacionRanking.innerText =  pelicula.rt_score;
+    puntuacionRanking.innerText = pelicula.rt_score;
     contenedorRanking.appendChild(imagenRanking);
     descripcionRanking.appendChild(tituloRanking);
     descripcionRanking.appendChild(calificacionRanking);
@@ -231,16 +241,18 @@ const mostrarRankingPersonaje = (peliculas) => {
     contenedorRanking.appendChild(descripcionRanking);
     seccionRanking.appendChild(contenedorRanking);
   });
+
+
+
+  let busqueda = document.querySelector("#busqueda");
+  const eventoFiltrarPeliculas = (e) => {
+    let buscar = e.target.value;
+    const peliculasFiltradas = filterData(data.films, (pelicula) =>
+      pelicula.title.toLowerCase().includes(buscar.toLowerCase())
+    );
+
+    mostrarPersonajesPorpelicula(peliculasFiltradas);
+  };
+
+  busqueda.addEventListener("change", eventoFiltrarPeliculas);
 }
-
-let busqueda = document.querySelector("#busqueda");
-const eventoFiltrarPeliculas = (e) => {
-  let buscar = e.target.value;
-  const peliculasFiltradas = filterData(data.films, (pelicula) =>
-    pelicula.title.toLowerCase().includes(buscar.toLowerCase())
-  );
-
-  mostrarPersonajesPorpelicula(peliculasFiltradas);
-};
-
-busqueda.addEventListener("change", eventoFiltrarPeliculas);

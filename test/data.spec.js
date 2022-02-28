@@ -1,5 +1,6 @@
 
-import { filterData } from "../src/data.js";
+import { describe } from "eslint/lib/rule-tester/rule-tester";
+import { filterData, obtenerPromedio } from "../src/data.js";
 import data from "../src/data/ghibli/ghibli.js";
 
 describe("pruebas para la funcion filterData", () => {
@@ -30,5 +31,13 @@ describe("pruebas para la funcion filterData", () => {
     );
     expect(diasDeLaSemanas[0]).toBe("miercoles");
   });
+
+
+describe("deberia retornar la suma", () => {
+  it ("debe sumar los datos", () =>{
+  const resultado = obtenerPromedio([1, 2, 3, 4, 5]);
+  expect(resultado).toBe(3);
+})
+});
 
 
