@@ -13,7 +13,8 @@ export const obtenerPromedio = (datos) => {
   return sumaDeCalifaciones / datos.length;
 }
 
-export const filtrar = (films, selected) => {
+
+export const filterMovies = (films, selected) => {
   let result = films.filter((filmSection) => filmSection.release_date == selected);
   if (selected == 'all') {
     return films;
@@ -21,17 +22,17 @@ export const filtrar = (films, selected) => {
   else {
     return result;
   }
-
 };
 
-export const organizar = (peliculas) => {
-  let resultado = peliculas.sort((a, b) => {
+export const orderMovies = (movies) => {
+  let resultOrder = movies.sort((a, b) => {
     if (b.title < a.title) return -1;
     return 1;
   })
-  return resultado;
+  return resultOrder;
 }
 
-
-
-
+export const porcentMovies = (allMovies, directorMovies) => {
+  let porcentResult = directorMovies * 100 / allMovies
+  return porcentResult + '%';
+}

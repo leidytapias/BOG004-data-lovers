@@ -1,7 +1,19 @@
 
-import { describe } from "eslint/lib/rule-tester/rule-tester";
-import { filterData, obtenerPromedio } from "../src/data.js";
+import { filterData, filterMovies, orderMovies, porcentMovies, obtenerPromedio } from "../src/data.js";
 import data from "../src/data/ghibli/ghibli.js";
+
+let movies = [
+  { "title": "My Neighbor Totoro",
+  "release_date": "1988",
+},
+{ "title": "Spirited Away",
+  "release_date": "2001",
+},
+{ "title": "Kaguya Princess",
+  "release_date": "2013",
+},
+ 
+]
 
 describe("pruebas para la funcion filterData", () => {
   it("verificar que filterData es una funcion", () => {
@@ -32,6 +44,20 @@ describe("pruebas para la funcion filterData", () => {
     expect(diasDeLaSemanas[0]).toBe("miercoles");
   });
 
+  describe("Test to filterMovies function", () => {
+    it("filterMovies is a function", () => {
+      expect(typeof filterMovies).toBe("function");
+    });
+  });
+    it("Should be return all movies", () => {
+      let selected = 'all';
+      let result = filterMovies(movies,selected);
+      expect(result).toBe(movies);
+    });
+    it ('Should be return Spirited Away ', () => {
+     let result1 = filterMovies(movies,2001);
+     expect(result1[0].title).toStrictEqual("Spirited Away")
+    })
 
 describe("deberia retornar el promedio", () => {
   it ("deberia retornar el promedio", () =>{
@@ -41,3 +67,23 @@ describe("deberia retornar el promedio", () => {
 });
 
 
+    describe("Test to orderMovies function", () => {
+      it("orderMovies is a function", () => {
+        expect(typeof orderMovies).toBe("function");
+      });
+    });
+      it("Should be return Kaguya Princess", () => {
+        let result2 = orderMovies(movies);
+        expect(result2[2].title).toBe("Kaguya Princess");
+      });
+
+      describe("Test to porcentMovies function", () => {
+        it("orderMovies is a function", () => {
+          expect(typeof porcentMovies).toBe("function");
+        });
+      });
+        it("Should be return 25%", () => {
+          let result3 = porcentMovies(180,45);
+          expect(result3).toBe("25%");
+        });
+  

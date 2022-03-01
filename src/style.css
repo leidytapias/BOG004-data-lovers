@@ -73,9 +73,10 @@ header {
 }
 
 .seccionpersonajes,
-.films {
+.films, .directors {
   display: none;
 }
+
 body .contenedor-peliculas-con-personajes {
   background-color: #fff;
   color: #000;
@@ -90,7 +91,6 @@ body .contenedor-peliculas-con-personajes {
 h2 {
   text-align: center;
   font-family: "Source Code Pro", monospace;
-  padding: 30px 0px;
   font-size: 60px;
 }
 .personajes {
@@ -250,17 +250,16 @@ h3 {
   font-family: "Baloo Thambi 2", cursive;
   font-family: "Source Code Pro", monospace;
   font-size: 20px;
-  margin-bottom: 20px;
   line-height: 40px;
   width: fit-content;
-  margin-left: 5%;
+  margin: 3%;
 }
 .seccionpersonajes .p2 {
   display:flex;
   margin-top:40px;
 }
 #filmoButton,
-#characterButton {
+#characterButton, #directorButton, #rankingButton {
   background-color: rgba(164, 239, 255, 1);
   padding: 10px 15px;
   border-style: none;
@@ -290,9 +289,6 @@ h3 {
   font-weight: bolder;
 }
 
-.films {
-  padding-top: 60px;
-}
 .movies-list {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -313,6 +309,15 @@ h3 {
   background-color: rgba(164, 239, 255, 0.2);
 }
 
+.info_miyazaki, .info_takahata, .info_goro, .info_hiromasa{
+  padding: 30px;
+  padding-top: 0px;
+  box-shadow: 1px 1px 3px rgba(144, 158, 160, 0.767);
+  border-radius: 5px;
+  background-color: rgba(164, 239, 255, 0.2);
+  width: fit-content;
+  height: fit-content;
+}
 .posters {
   display: flex;
   width: 280px;
@@ -331,7 +336,7 @@ h3 {
   margin-top: 20px;
 }
 
-.descriptionFilms {
+.descriptionFilms, .movie_director {
   font-family: "Baloo Thambi 2", cursive;
   font-family: "Source Code Pro", monospace;
   font-weight: lighter;
@@ -341,6 +346,7 @@ h3 {
 .date {
   width: fit-content;
 }
+
 #years {
   width: fit-content;
   margin-left: 5%;
@@ -367,10 +373,34 @@ h3 {
   background-color: rgba(164, 239, 255, 1);
 }
 
-@media screen and (max-width: 850px) {
-  .personaje {
-    width: 100%;
-  }
+.directors{
+  margin: 30px 30px;
+  width: fit-content;
+}
+
+.divDirectors {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: fit-content;
+  gap: 30px;
+  margin-left: 20%;
+  margin-bottom: 60px;
+  align-items: center;
+}
+#HayaoM, #IsaoT, #GoroM, #HiromasaY {
+  height: 400px;
+  width: 350px;
+  margin: 50px 50px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px rgba(144, 158, 160, 0.767);
+}
+
+.porcent_miyazaki, .porcent_takahata, .porcent_goro, .porcent_hiromasa {
+  font-family: "Baloo Thambi 2", cursive;
+  font-family: "Source Code Pro", monospace;
+  color: rgba(2, 100, 215, 1);
+  font-size: 25px;
+  margin-top: 15px;
 }
 
 @media screen and (max-width: 700px) {
@@ -404,11 +434,9 @@ h3 {
     text-align: left;
     font-size: 15px;
   }
-  #chihiro {
-    grid-column: 1 / -1;
-    width: 80%;
-  }
+ 
   .paragraph {
+    width: 87%;
     grid-column: 1 / -1;
   }
   .p1 {
@@ -418,11 +446,13 @@ h3 {
   }
   .sections {
     padding: 0px;
-    gap: 30px;
-    margin: 30px;
+    gap: 10px;
+    margin: 15px;
   }
   #filmoButton,
-  #characterButton {
+  #characterButton, 
+  #directorButton, 
+  #rankingButton {
     font-size: 13px;
   }
 
@@ -431,10 +461,11 @@ h3 {
   }
 
   .movies-list {
-    gap: 40px;
+    gap: 50px;
     margin: 0%;
     justify-items: center;
     padding-top: 50px;
+    width: 95%;
   }
 
   .p2 {
@@ -458,6 +489,9 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .personaje {
+    width: 95%;
   }
   .personajes {
     display: flex;
@@ -486,4 +520,15 @@ h3 {
     font-size: 30px;
   }
   
+  #HayaoM, #IsaoT, #GoroM, #HiromasaY {
+  margin: 8%;
+}
+.info_miyazaki, .info_takahata, .info_goro, .info_hiromasa{
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+.divDirectors {
+  margin: 2%;
+  margin-bottom: 60px;
+}
 }
