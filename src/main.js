@@ -1,4 +1,4 @@
-import { filtrar , organizar, filterData } from "./data.js";
+import { filterData, orderMovies, filterMovies, porcentMovies } from "./data.js";
 import data from "./data/ghibli/ghibli.js";
 
 let studioGhibli = data.films;
@@ -10,14 +10,19 @@ let sectionPaginaprincipal = document.querySelector(".pagina-principal");
 let seccionpersonajes = document.querySelector(".seccionpersonajes");
 let films = document.querySelector(".films");
 let logo = document.querySelector("#btn-inicio");
+let menuEquipoCreativo = document.getElementById('directores');
+let directors = document.querySelector('.directors');
+let infoMiyazaki = document.querySelector('.info_miyazaki');
 let divMovies = document.createElement("div");
-divMovies.classList = "movies-list";
+    divMovies.classList = "movies-list";
 
+ 
 logo.addEventListener("click", () => {
-  seccionpersonajes.style.display = "none";
-  films.style.display = "none";
-  sectionPaginaprincipal.style.display = "block";
-});
+seccionpersonajes.style.display = "none";
+films.style.display = "none";
+directors.style.display = 'none';
+sectionPaginaprincipal.style.display = "block";
+    })
 
 menuToggle.addEventListener("click", () => {
   menu.classList.toggle("show");
@@ -31,7 +36,9 @@ const mostrarTitulos = () => {
 
   sectionPaginaprincipal.style.display = "none";
   seccionpersonajes.style.display = "none";
+  directors.style.display = 'none';
   films.style.display = "block";
+  
 };
 
 let buttonFilms = document.getElementById("filmoButton");
@@ -42,10 +49,10 @@ let characterButton = document.getElementById("characterButton");
 characterButton.addEventListener("click", () => {
   sectionPaginaprincipal.style.display = "none";
   films.style.display = "none";
+  directors.style.display = 'none';
   seccionpersonajes.style.display = "grid";
   mostrarPersonajesPorpelicula(data.films);
 })
-
 
 function extraerPeliculas(dataMovies) {
   dataMovies.map((movies) => {
@@ -80,7 +87,7 @@ let buttonAZ = document.getElementById("buttonAZ");
 buttonAZ.addEventListener("click", orderAZ);
 
 function orderAZ() {
-  let peliculasOrganizadasZA = organizar(studioGhibli);
+  let peliculasOrganizadasZA = orderMovies(studioGhibli);
   let peliculasOrganizadasAZ = peliculasOrganizadasZA.reverse();
   while (divMovies.firstChild) {
     divMovies.removeChild(divMovies.firstChild);
@@ -92,7 +99,7 @@ let buttonZA = document.getElementById("buttonZA");
 buttonZA.addEventListener("click", orderZA);
 
 function orderZA() {
-  let peliculasOrganizadas = organizar(studioGhibli);
+  let peliculasOrganizadas = orderMovies(studioGhibli);
   while (divMovies.firstChild) {
     divMovies.removeChild(divMovies.firstChild);
   }
@@ -104,16 +111,17 @@ datelist.addEventListener("change", showDateFilterMovies);
 
 function showDateFilterMovies() {
   let selected = datelist.options[datelist.selectedIndex].value;
-  let filterMovies = filtrar(studioGhibli, selected);
+  let filterMovies1 = filterMovies(studioGhibli, selected);
   while (divMovies.firstChild) {
     divMovies.removeChild(divMovies.firstChild);
   }
-  extraerPeliculas(filterMovies);
+  extraerPeliculas(filterMovies1);
 }
 
 menuPersonajes.addEventListener("click", () => {
   sectionPaginaprincipal.style.display = "none";
   films.style.display = "none";
+  directors.style.display = 'none';
   seccionpersonajes.style.display = "block";
 
   mostrarPersonajesPorpelicula(data.films);
@@ -202,3 +210,96 @@ const eventoFiltrarPeliculas = (e) => {
 };
 
 busqueda.addEventListener("change", eventoFiltrarPeliculas);
+
+const mostrarDirectores = () => {
+  sectionPaginaprincipal.style.display = "none";
+  seccionpersonajes.style.display = "none";
+  films.style.display = "none";
+  directors.style.display = "block";
+
+};
+ let directorButton = document.getElementById('directorButton');
+ directorButton.addEventListener('click', mostrarDirectores);
+ menuEquipoCreativo.addEventListener('click', mostrarDirectores);
+
+function Miyazaki (e){
+e.target.removeEventListener(e.type, Miyazaki)
+let filmsBydirector = studioGhibli.filter((filmSection) => 
+filmSection.director == 'Hayao Miyazaki');
+filmsBydirector.forEach((movie) => {
+  let movieFordirector = document.createElement('p');
+  movieFordirector.classList = 'movie_director';
+  movieFordirector.innerHTML =  '✤ '+ movie.title;
+  infoMiyazaki.appendChild(movieFordirector);
+})
+let porcentMiyazaki = document.createElement('p');
+porcentMiyazaki.classList = 'porcent_miyazaki';
+porcentMiyazaki.innerHTML = porcentMovies(studioGhibli.length,filmsBydirector.length);
+infoMiyazaki.appendChild(porcentMiyazaki);
+}
+
+let MiyazakiInfo = document.getElementById('HayaoM');
+MiyazakiInfo.addEventListener('click', Miyazaki);
+
+let infoTakahata = document.querySelector('.info_takahata')
+
+function Takahata (e){
+  e.target.removeEventListener(e.type, Takahata)
+  let filmsBydirector = studioGhibli.filter((filmSection) => 
+  filmSection.director == 'Isao Takahata');
+  filmsBydirector.forEach((movie) => {
+    let moviesTakahata = document.createElement('p');
+    moviesTakahata.classList = 'movie_director';
+    moviesTakahata.innerHTML =  '✤ '+ movie.title;
+    infoTakahata.appendChild(moviesTakahata);
+  })
+  let porcentTakahata = document.createElement('p');
+  porcentTakahata.classList = 'porcent_takahata';
+  porcentTakahata.innerHTML = porcentMovies(studioGhibli.length,filmsBydirector.length);
+  infoTakahata.appendChild(porcentTakahata);
+  }
+
+  let TakahataInfo = document.getElementById('IsaoT');
+TakahataInfo.addEventListener('click', Takahata);
+
+let infoGoro = document.querySelector('.info_goro')
+
+function Goro (e){
+  e.target.removeEventListener(e.type, Goro)
+  let filmsBydirector = studioGhibli.filter((filmSection) => 
+  filmSection.director == 'Gorō Miyazaki');
+  filmsBydirector.forEach((movie) => {
+    let moviesGoro = document.createElement('p');
+    moviesGoro.classList = 'movie_director';
+    moviesGoro.innerHTML =  '✤ '+ movie.title;
+    infoGoro.appendChild(moviesGoro);
+  })
+  let porcentGoro = document.createElement('p');
+  porcentGoro.classList = 'porcent_goro';
+  porcentGoro.innerHTML = porcentMovies(studioGhibli.length,filmsBydirector.length);
+  infoGoro.appendChild(porcentGoro);
+  }
+
+  let GoroInfo = document.getElementById('GoroM');
+GoroInfo.addEventListener('click', Goro);
+
+let infoHiromasa = document.querySelector('.info_hiromasa')
+
+function Hiromasa (e){
+  e.target.removeEventListener(e.type, Hiromasa)
+  let filmsBydirector = studioGhibli.filter((filmSection) => 
+  filmSection.director == 'Hiromasa Yonebayashi');
+  filmsBydirector.forEach((movie) => {
+    let moviesHiromasa = document.createElement('p');
+    moviesHiromasa.classList = 'movie_director';
+    moviesHiromasa.innerHTML =  '✤ '+ movie.title;
+    infoHiromasa.appendChild(moviesHiromasa);
+  })
+  let porcentHiromasa = document.createElement('p');
+  porcentHiromasa.classList = 'porcent_hiromasa';
+  porcentHiromasa.innerHTML = porcentMovies(studioGhibli.length,filmsBydirector.length);
+  infoHiromasa.appendChild(porcentHiromasa);
+  }
+
+  let HiromasaInfo = document.getElementById('HiromasaY');
+HiromasaInfo.addEventListener('click', Hiromasa);
