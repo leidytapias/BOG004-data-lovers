@@ -26,6 +26,7 @@ menuToggle.addEventListener("click", () => {
   menu.classList.toggle("show");
 });
 
+
 const mostrarTitulos = () => {
   while (divMovies.firstChild) {
     divMovies.removeChild(divMovies.firstChild);
@@ -124,10 +125,12 @@ menuPersonajes.addEventListener("click", () => {
   mostrarPersonajesPorpelicula(data.films);
 });
 
+
 const mostrarPersonajesPorpelicula = (peliculas) => {
   let divContenedorPeliculasConPersonajes = document.querySelector(
     ".contenedor-peliculas-con-personajes"
   );
+
   divContenedorPeliculasConPersonajes.innerHTML = "";
   peliculas.forEach((pelicula) => {
     let divPelicula = document.createElement("div");

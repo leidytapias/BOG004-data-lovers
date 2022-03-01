@@ -34,7 +34,7 @@ describe("pruebas para la funcion filterData", () => {
 
 
 describe("deberia retornar la suma", () => {
-  it ("debe sumar los datos", () =>{
+  it ("debe sumar los datos y dividirlos por 20 ", () =>{
   const resultado = obtenerPromedio([1, 2, 3, 4, 5]);
   expect(resultado).toBe(3);
 })
