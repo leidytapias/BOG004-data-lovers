@@ -12,7 +12,7 @@
 <body>
   <header>
     <div class="logo">
-      <a id = "btn-inicio" href="#"><img src="logo.svg" alt="logo" /></a>
+      <a id="btn-inicio" href="#"><img src="logo.svg" alt="logo" /></a>
     </div>
     <nav id="menu">
       <li>
@@ -23,7 +23,7 @@
           <a id="menu-personajes" href="#">PERSONAJES</a>
         </ul>
         <ul>
-          <a href="#">EQUIPO CREATIVO</a>
+          <a href="#" id="directores">EQUIPO CREATIVO</a>
         </ul>
         <ul>
           <a href="#">RANKING</a>
@@ -77,11 +77,28 @@
           </p>
           <input type="button" value="Ingresar" id="characterButton">
         </div>
+        <img src="miyazaki.jpg" alt="miyazaki" class="chihiro">
+        <div class="paragraph">
+          <h3>EQUIPO CREATIVO</h3>
+          <p class="p1">
+            Conoce los directores mas relevantes y enterate del porcentaje de su incidencia en el éxito del Studio.
+          </p>
+          <input type="button" value="Ingresar" id="directorButton">
+        </div>
+        <img src="rank.jpg" alt="ranking" class="chihiro">
+        <div class="paragraph">
+          <h3>RANKING</h3>
+          <p class="p1">
+            Aquí podrás visualizar el Top 5 de los largometrajes mejor y peor rankeados del Studio según su puntaje
+            internacional.
+          </p>
+          <input type="button" value="Ingresar" id="rankingButton">
+        </div>
       </div>
     </section>
   </main>
   <div class="secciones">
-    <div class="films">
+    <section class="films">
       <p class="p2">
         Para que puedas acceder mas rapidamente a la información de tu largometraje favorito, puedes organizar la
         filmografía por orden alfabético o puedes obtenerlas seleccionando un rango cronológico.
@@ -109,12 +126,53 @@
       </select>
       <input type="button" value="AZ↓" id="buttonAZ">
       <input type="button" value="AZ↑" id="buttonZA">
-    </div>
+    </section>
 
     <section class="seccionpersonajes">
       <input type="search" id="busqueda" placeholder="Buscar..." />
-      <div class ="contenedor-peliculas-con-personajes"></div>
+      <div class="contenedor-peliculas-con-personajes"></div>
     </section>
+
+    <section class="directors">
+      <p class="p2">El reconocimiento global del Studio Ghibli no sería posible sin el talento y la dedicación de todos
+        aquellos
+        que trabajan arduamente para hacer posible este universo de fantasía. Conoce a los genios detrás del éxito y
+        enterate de cual ha sido su aporte. </p>
+      <p class="p2">Haz click sobre la fotografía de cada director y averígualo. </p>
+      <div class="divDirectors">
+        <a href="javascript:funcion()"><img src="Hayao-Miyazaki.jpg" id="HayaoM" /></a>
+        <div class="info_miyazaki">
+          <p class="movie_title">Hayao Miyazaki</p>
+          <h3>Cofundador y director</h3>
+        </div>
+      </div>
+      <div class="divDirectors">
+        <a href="javascript:funcion()"><img src="isao-takahata.jpg" id="IsaoT" /></a>
+        <div class="info_takahata">
+          <p class="movie_title">Isao Takahata</p>
+          <h3>Cofundador y director</h3>
+        </div>
+      </div>
+
+      <div class="divDirectors">
+        <a href="javascript:funcion()"><img src="goro-miyazaki.jpg" id="GoroM" /></a>
+        <div class="info_goro">
+          <p class="movie_title">Goro Miyazaki</p>
+          <h3>Director</h3>
+        </div>
+      </div>
+
+      <div class="divDirectors">
+        <a href="javascript:funcion()"><img src="hiromasa.jpg" id="HiromasaY" /></a>
+        <div class="info_hiromasa">
+          <p class="movie_title">Hiromasa Yonebayashi</p>
+          <h3>Director</h3>
+        </div>
+      </div>
+    </section>
+
+
+
 
   </div>
   <footer>
