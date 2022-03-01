@@ -199,6 +199,7 @@ h2 {
   padding: 12px;
   flex-wrap: wrap;
   width: 50%;
+  margin-top: 40px;
   
 }
 
@@ -253,6 +254,10 @@ h3 {
   line-height: 40px;
   width: fit-content;
   margin-left: 5%;
+}
+.seccionpersonajes .p2 {
+  display:flex;
+  margin-top:40px;
 }
 #filmoButton,
 #characterButton {
@@ -460,13 +465,25 @@ h3 {
     align-items: center;
     margin-left: 3%;
   }
-  .descripcion-personaje {
+  .descripcion-personaje .seccionpersonajes{
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     align-items: center;
+    
   }
 
   h2 {
     font-size: 20px;
   }
+  .descripcion-ranking {
+    font-size: 12px;
+
+  }
+  .descripcion-ranking h3 {
+    font-size: 11px;
+  }
+  .puntaje {
+    font-size: 30px;
+  }
+  
 }
