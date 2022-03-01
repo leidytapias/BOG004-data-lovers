@@ -1,5 +1,5 @@
 
-import { filterData, filterMovies, orderMovies, porcentMovies } from "../src/data.js";
+import { filterData, filterMovies, orderMovies, porcentMovies, obtenerPromedio } from "../src/data.js";
 import data from "../src/data/ghibli/ghibli.js";
 
 let movies = [
@@ -58,6 +58,14 @@ describe("pruebas para la funcion filterData", () => {
      let result1 = filterMovies(movies,2001);
      expect(result1[0].title).toStrictEqual("Spirited Away")
     })
+
+describe("deberia retornar el promedio", () => {
+  it ("deberia retornar el promedio", () =>{
+  const resultado = obtenerPromedio([1, 2, 3, 4, 5]);
+  expect(resultado).toBe(3);
+})
+});
+
 
     describe("Test to orderMovies function", () => {
       it("orderMovies is a function", () => {
