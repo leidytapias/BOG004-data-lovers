@@ -217,6 +217,7 @@ const mostrarDirectores = () => {
   directors.style.display = "block";
 
 };
+
 let directorButton = document.getElementById('directorButton');
 directorButton.addEventListener('click', mostrarDirectores);
 menuEquipoCreativo.addEventListener('click', mostrarDirectores);
