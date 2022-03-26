@@ -209,11 +209,24 @@ const crearDescripcionPersonaje = (personaje) => {
 
   return descripcionPersonaje;
 };
+let busqueda = document.querySelector("#busqueda");
+const eventoFiltrarPeliculas = (e) => {
+  let buscar = e.target.value;
+  const peliculasFiltradas = filterData(data.films, (pelicula) =>
+    pelicula.title.toLowerCase().includes(buscar.toLowerCase())
+  );
+
+  mostrarPersonajesPorpelicula(peliculasFiltradas);
+};
+
+busqueda.addEventListener("change", eventoFiltrarPeliculas);
+
 
 const mostrarDirectores = () => {
   sectionPaginaprincipal.style.display = "none";
   seccionpersonajes.style.display = "none";
   films.style.display = "none";
+  seccionRanking.style.display = "none";
   directors.style.display = "block";
 
 };
@@ -350,20 +363,8 @@ const mostrarRankingPersonaje = (peliculas) => {
     contenedorRanking.appendChild(descripcionRanking);
     seccionRanking.appendChild(contenedorRanking);
   });
-
-
-
-  let busqueda = document.querySelector("#busqueda");
-  const eventoFiltrarPeliculas = (e) => {
-    let buscar = e.target.value;
-    const peliculasFiltradas = filterData(data.films, (pelicula) =>
-      pelicula.title.toLowerCase().includes(buscar.toLowerCase())
-    );
-
-    mostrarPersonajesPorpelicula(peliculasFiltradas);
-  };
-
-  busqueda.addEventListener("change", eventoFiltrarPeliculas);
 }
+
+ 
 
 

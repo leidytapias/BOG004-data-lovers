@@ -13,7 +13,6 @@ export const obtenerPromedio = (datos) => {
   return sumaDeCalifaciones / datos.length;
 }
 
-
 export const filterMovies = (films, selected) => {
   let result = films.filter((filmSection) => filmSection.release_date == selected);
   if (selected == 'all') {
